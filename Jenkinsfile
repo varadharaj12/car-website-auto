@@ -5,7 +5,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git 'https://github.com/USERNAME/REPOSITORY.git'
+                git 'https://github.com/varadharaj12/car-website-auto.git'
             }
         }
 
@@ -23,13 +23,13 @@ pipeline {
 
         stage('Deploy to S3') {
             steps {
-                sh 'aws s3 sync build/ s3://YOUR_BUCKET_NAME --delete'
+                sh 'aws s3 sync . s3://my-frontend-demo-2026 --delete'
             }
         }
 
         stage('CloudFront Invalidation') {
             steps {
-                sh 'aws cloudfront create-invalidation --distribution-id YOUR_DISTRIBUTION_ID --paths "/*"'
+                sh 'aws cloudfront create-invalidation --distribution-id E1HMI24YBRVV9L --paths "/*"'
             }
         }
 
