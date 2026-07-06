@@ -1,14 +1,6 @@
 pipeline {
     agent any
 
-    stages {
-
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/varadharaj12/car-website-auto.git'
-            }
-        }
-
         stage('Install') {
             steps {
                 sh 'npm install'
