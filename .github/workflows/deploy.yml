@@ -22,7 +22,7 @@ jobs:
 
       - name: Upload Website to S3
         run: |
-          aws s3 sync carwebsite/ s3://${{ secrets.S3_BUCKET }} --delete
+          aws s3 sync carwebsite/ s3://${{ secrets.AWS_S3_BUCKET }} --delete
 
       - name: Create CloudFront Invalidation
         run: |
